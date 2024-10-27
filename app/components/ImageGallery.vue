@@ -22,22 +22,23 @@ function openFilePicker() {
 
 async function fileSelection(event: Event) {
   const target = event.target as HTMLInputElement
-
-  if (target.files?.[0]) {
-    await uploadFile(target.files[0])
+  if (target.files) {
+    await uploadFile(target.files)
   }
 }
 
 async function onDrop(files: File[] | null) {
   if (files) {
-    await uploadFile(files[0] as File)
+    const fileList = new DataTransfer()
+    files.forEach(file => fileList.items.add(file))
+    await uploadFile(fileList.files)
   }
 }
 
-async function uploadFile(file: File) {
+async function uploadFile(files: FileList) {
   uploadingImg.value = true
 
-  await uploadImage(file)
+  await uploadImage(files)
     .catch(() => toast.add({ title: 'An error occured', description: 'Please try again', color: 'red' }))
     .finally(() => uploadingImg.value = false)
 }
@@ -133,6 +134,7 @@ async function clearSession() {
             class="hidden"
             type="file"
             accept="image/*"
+            multiple
             @change="fileSelection"
           >
           <UploadButton
