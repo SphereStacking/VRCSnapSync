@@ -63,17 +63,14 @@ async function clearSession() {
     <section
       v-if="images"
       ref="dropZoneRef"
-      class="relative h-screen gap-[22px] p-4"
-    >
+      class="relative h-screen gap-[22px] p-4">
       <UModal
         v-model="isOpen"
         side="left"
-        :ui="{ container: 'flex min-h-full items-center justify-center text-center' }"
-      >
+        :ui="{ container: 'flex min-h-full items-center justify-center text-center' }">
         <LoginForm
           class="z-50 bg-gray-800 rounded-md"
-          @close="isOpen = false"
-        />
+          @close="isOpen = false" />
       </UModal>
 
       <BottomMenu class="bottom-menu">
@@ -81,8 +78,7 @@ async function clearSession() {
           <img
             src="/logo.svg"
             width="29"
-            height="20"
-          >
+            height="20">
         </template>
         <template #description>
           <div class="flex gap-x-4 items-center">
@@ -92,12 +88,10 @@ async function clearSession() {
             <NuxtLink
               to="https://github.com/SphereStacking/VRCSnapSync"
               target="blank"
-              class="flex items-center"
-            >
+              class="flex items-center">
               <UIcon
                 name="i-simple-icons-github"
-                class="w-5 h-5"
-              />
+                class="w-5 h-5" />
             </NuxtLink>
           </div>
         </template>
@@ -109,8 +103,7 @@ async function clearSession() {
               icon="i-heroicons-power-20-solid"
               color="red"
               variant="ghost"
-              @click="clearSession"
-            />
+              @click="clearSession" />
             <UButton
               v-else
               label="Sign in"
@@ -118,16 +111,14 @@ async function clearSession() {
               variant="ghost"
               aria-label="Sign in"
               class="mr-4 sm:mr-0"
-              @click="isOpen = true"
-            />
+              @click="isOpen = true" />
           </div>
         </template>
       </BottomMenu>
 
       <div
         class="w-full"
-        :class="{ 'masonry-container': images && images.length }"
-      >
+        :class="{ 'masonry-container': images && images.length }">
         <div v-if="loggedIn">
           <input
             ref="fileInput"
@@ -135,20 +126,17 @@ async function clearSession() {
             type="file"
             accept="image/*"
             multiple
-            @change="fileSelection"
-          >
+            @change="fileSelection">
           <UploadButton
             :uploading="uploadingImg"
             type="submit"
             class="mb-6"
             :is-over-drop-zone="isOverDropZone"
-            @click="openFilePicker"
-          />
+            @click="openFilePicker" />
         </div>
         <div
           v-else
-          class="text-2xl text-white flex flex-col gap-y-4 items-center justify-center h-full w-full pb-8"
-        >
+          class="text-2xl text-white flex flex-col gap-y-4 items-center justify-center h-full w-full pb-8">
           <h1 class="font-medium text-5xl">
             Welcome to SnapSync
           </h1>
@@ -159,34 +147,29 @@ async function clearSession() {
 
         <ul
           v-if="images && images.length"
-          class="grid grid-cols-1 gap-4 lg:block"
-        >
+          class="grid grid-cols-1 gap-4 lg:block">
           <li
             v-for="image in images"
             ref="mansoryItem"
             :key="image.pathname"
-            class="relative w-full group masonry-item"
-          >
+            class="relative w-full group masonry-item">
             <UButton
               v-if="loggedIn"
               :loading="deletingImg === image.pathname"
               color="white"
               icon="i-heroicons-trash-20-solid"
               class="absolute top-4 right-4 z-[9999] opacity-0 group-hover:opacity-100"
-              @click="deleteFile(image.pathname)"
-            />
+              @click="deleteFile(image.pathname)" />
             <NuxtLink
               :to="`/detail/${image.pathname.split('.')[0]}`"
-              @click="active = image.pathname.split('.')[0]"
-            >
+              @click="active = image.pathname.split('.')[0]">
               <img
                 v-if="image"
                 width="527"
                 height="430"
                 :src="`/images/${image.pathname}`"
                 :class="{ imageEl: image.pathname.split('.')[0] === active }"
-                class="h-auto w-full max-h-[430px] rounded-md transition-all duration-200 border-image brightness-[.8] hover:brightness-100 will-change-[filter] object-cover"
-              >
+                class="h-auto w-full max-h-[430px] rounded-md transition-all duration-200 border-image brightness-[.8] hover:brightness-100 will-change-[filter] object-cover">
             </NuxtLink>
           </li>
         </ul>
@@ -194,12 +177,10 @@ async function clearSession() {
     </section>
     <div
       v-else
-      class="flex items-center space-x-4 z-10"
-    >
+      class="flex items-center space-x-4 z-10">
       <USkeleton
         class="h-12 w-12 bg-primary-500"
-        :ui="{ rounded: 'rounded-full' }"
-      />
+        :ui="{ rounded: 'rounded-full' }" />
       <div class="space-y-2">
         <USkeleton class="h-4 w-[250px] bg-primary-500" />
         <USkeleton class="h-4 w-[200px] bg-primary-500" />

@@ -103,8 +103,8 @@ export function useImageGallery() {
     const zoomedWidth = imgWidth * (zoomFactor === 1 ? 1.5 : zoomFactor)
     const zoomedHeight = imgHeight * (zoomFactor === 1 ? 1.5 : zoomFactor)
 
-    let xperc = (x / imgWidth) * 100
-    let yperc = (y / imgHeight) * 100
+    let xperc = x / imgWidth * 100
+    let yperc = y / imgHeight * 100
 
     if (x > 0.01 * imgWidth)
       xperc += 0.15 * xperc

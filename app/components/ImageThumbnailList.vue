@@ -16,7 +16,7 @@ async function moveThumbnail(slug: string) {
   const imageWidth: number = imgToMove.value!.offsetWidth
 
   // calculate translate to do. (current translate + middle screen pos x - middle thumbnail to move pos x)
-  x.value = (x.value + ((width.value / 2) - (imgToMove.value!.getBoundingClientRect().left + ((imageWidth / 2)))))
+  x.value = x.value + (width.value / 2 - (imgToMove.value!.getBoundingClientRect().left + imageWidth / 2))
 }
 
 // move thumbnail on mounted (if not gallery page)
@@ -41,15 +41,13 @@ router.afterEach(async (to, _) => {
     <ul
       v-if="images && images.length"
       ref="thumbnails"
-      class="fixed top-2 left-0 right-0 mr-8 whitespace-nowrap overflow-x-scroll"
-    >
+      class="fixed top-2 left-0 right-0 mr-8 whitespace-nowrap overflow-x-scroll">
       <ImageThumbnail
         v-for="(thumbnail, index) in images"
         :key="index"
         class="transform-gpu transition-all duration-500 mx-4"
         :thumbnail="thumbnail"
-        :style="`transform: translateX(${x}px) translateZ(0)`"
-      />
+        :style="`transform: translateX(${x}px) translateZ(0)`" />
     </ul>
   </div>
 </template>

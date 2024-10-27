@@ -31,8 +31,7 @@ async function login() {
 <template>
   <form
     class="flex flex-col gap-y-4 p-4 items-center"
-    @submit.prevent="login"
-  >
+    @submit.prevent="login">
     <h1 class="text-lg text-gray-300">
       Login to upload images
     </h1>
@@ -41,8 +40,7 @@ async function login() {
       type="password"
       placeholder="Enter password"
       icon="i-heroicons-key"
-      class="!w-60"
-    />
+      class="!w-60" />
 
     <UButton
       :loading="loading"
@@ -52,8 +50,7 @@ async function login() {
       variant="ghost"
       class="px-4"
       size="lg"
-      :disabled="!password"
-    />
+      :disabled="!password" />
 
     <UButton
       icon="i-heroicons-x-mark"
@@ -61,7 +58,6 @@ async function login() {
       variant="ghost"
       size="xs"
       class="absolute right-2 top-2"
-      @click="$emit('close')"
-    />
+      @click="$emit('close')" />
   </form>
 </template>

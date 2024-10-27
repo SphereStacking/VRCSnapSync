@@ -32,8 +32,7 @@ const value = useVModel(props, 'modelValue', emit)
     <URange
       v-model="value"
       :min="min"
-      :max="max"
-    />
+      :max="max" />
 
     <span class="text-center text-medium text-white w-16 px-2"> {{ Math.round(modelValue) }} </span>
   </div>
