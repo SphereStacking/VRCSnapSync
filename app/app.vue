@@ -3,23 +3,23 @@ const { getImages } = useFile()
 
 useHead({
   link: [
-    { rel: 'icon', href: '/favicon.ico' }
+    { rel: 'icon', href: '/logo.svg' }
   ],
   htmlAttrs: {
-    lang: 'en'
+    lang: 'ja'
   }
 })
 
-const title = 'NuxtHub Image Gallery Starter'
-const description = 'A Nuxt template to build your full-stack image gallery application on the edge.'
+const title = 'SnapSync'
+const description = '画像共有'
 
 useSeoMeta({
   title,
   ogTitle: title,
   description,
   ogDescription: description,
-  ogSiteName: 'NuxtHub image gallery template',
-  ogImage: 'https://image-gallery.nuxt.dev/social-card.png',
+  ogSiteName: 'SnapSync',
+  ogImage: '/social-card.png',
   twitterCard: 'summary_large_image'
 })
 

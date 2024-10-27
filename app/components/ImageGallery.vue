@@ -86,10 +86,10 @@ async function clearSession() {
         <template #description>
           <div class="flex gap-x-4 items-center">
             <p class="bottom-menu-description text-sm sm:text-base leading-tight sm:leading-normal">
-              Media Gallery template
+              Media Gallery
             </p>
             <NuxtLink
-              to="https://github.com/Flosciante/nuxt-image-gallery"
+              to="https://github.com/SphereStacking/VRCSnapSync"
               target="blank"
               class="flex items-center"
             >
@@ -148,10 +148,10 @@ async function clearSession() {
           class="text-2xl text-white flex flex-col gap-y-4 items-center justify-center h-full w-full pb-8"
         >
           <h1 class="font-medium text-5xl">
-            Welcome to image gallery
+            Welcome to SnapSync
           </h1>
           <p class="text-gray-400">
-            You must be logged in to start uploading images
+            画像をアップロードするにはログインが必要です
           </p>
         </div>
 
