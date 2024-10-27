@@ -141,12 +141,12 @@ async function clearSession() {
             Welcome to SnapSync
           </h1>
           <p class="text-gray-400">
-            画像をアップロードするにはログインが必要です
+            画像を表示するにはログインが必要です。
           </p>
         </div>
 
         <ul
-          v-if="images && images.length"
+          v-if="images && images.length && loggedIn"
           class="grid grid-cols-1 gap-4 lg:block">
           <li
             v-for="image in images"
