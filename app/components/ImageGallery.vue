@@ -67,8 +67,8 @@ async function clearSession() {
     >
       <UModal
         v-model="isOpen"
-        class="flex items-center justify-center relative"
         side="left"
+        :ui="{ container: 'flex min-h-full items-center justify-center text-center' }"
       >
         <LoginForm
           class="z-50 bg-gray-800 rounded-md"
